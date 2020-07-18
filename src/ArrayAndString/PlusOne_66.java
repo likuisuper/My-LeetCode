@@ -41,6 +41,6 @@ public class PlusOne_66 {
 
     public static void main(String[] args) {
         PlusOne_66 p=new PlusOne_66();
-        System.out.print(Arrays.toString(p.plusOne(new int[]{9,9,9,9})));
+        System.out.println(Arrays.toString(p.plusOne(new int[]{9,9,9,9})));
     }
 }
