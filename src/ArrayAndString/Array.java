@@ -3,6 +3,7 @@ package ArrayAndString;
 
 import java.util.Arrays;
 
+//数组简介
 public class Array {
     public static void main(String[] args){
         int[] a0=new int[5];
