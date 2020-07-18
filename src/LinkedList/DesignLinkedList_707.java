@@ -98,5 +98,6 @@ public class DesignLinkedList_707 {//一个文件只能有一个public修饰的�
         design.deleteAtIndex(1);
         int val=design.get(0);
         System.out.println(val);
+
     }
 }
