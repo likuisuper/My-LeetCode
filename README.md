@@ -1,2 +1,2 @@
 # My-LeetCode
-Brush question record
+力扣刷题笔记，包括官网和中国官网
