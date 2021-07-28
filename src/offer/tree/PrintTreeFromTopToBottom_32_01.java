@@ -2,6 +2,7 @@ package offer.tree;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 /**
@@ -34,5 +35,31 @@ public class PrintTreeFromTopToBottom_32_01 {
             }
         }
         return list;
+    }
+
+    /**
+     * 精简解法。力扣返回的是一个数组
+     * @param root
+     * @return
+     */
+    public int[] levelOrder(TreeNode root) {
+        if(root==null)
+            return new int[0];
+        Queue<TreeNode> queue=new LinkedList<>();
+        queue.offer(root);
+        List<Integer> list=new ArrayList<>();
+        while(!queue.isEmpty()){
+            TreeNode node=queue.poll();
+            list.add(node.val);
+            if(node.left!=null)
+                queue.offer(node.left);
+            if(node.right!=null)
+                queue.offer(node.right);
+        }
+        int[] array=new int[list.size()];
+        for(int i=0;i<list.size();i++){
+            array[i]=list.get(i);
+        }
+        return array;
     }
 }

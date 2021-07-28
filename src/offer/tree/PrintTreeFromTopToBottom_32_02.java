@@ -2,6 +2,7 @@ package offer.tree;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 /**
@@ -42,5 +43,33 @@ public class PrintTreeFromTopToBottom_32_02 {
             }
         }
         return ret;
+    }
+
+    /**
+     * 精简解法。queue从后向前遍历。queue的长度就是当前层节点的个数
+     * @param root
+     * @return
+     */
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        Queue<TreeNode> queue=new LinkedList<>();
+        List<List<Integer>> result=new ArrayList<>();
+        if(root!=null){
+            queue.offer(root);
+        }
+        while(!queue.isEmpty()){
+            List<Integer> tmp=new ArrayList<>();
+            //从后向前遍历，这样就能将每一层的节点都遍历到
+            //不能从前向后，因为poll操作会改变queue的size
+            for(int i=queue.size();i>0;i--){
+                TreeNode node=queue.poll();
+                tmp.add(node.val);
+                if(node.left!=null)
+                    queue.offer(node.left);
+                if(node.right!=null)
+                    queue.offer(node.right);
+            }
+            result.add(tmp);
+        }
+        return result;
     }
 }

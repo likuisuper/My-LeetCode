@@ -22,7 +22,7 @@ public class SubstructureInTree_26 {
         if(root1==null||root2==null){
             return false;
         }
-        return isSubtreeWithRoot(root1,root2)&&hasSubTree(root1.left,root2)&&hasSubTree(root1.right,root2);
+        return isSubtreeWithRoot(root1,root2)||hasSubTree(root1.left,root2)||hasSubTree(root1.right,root2);
     }
 
     public boolean isSubtreeWithRoot(TreeNode root1,TreeNode root2){
