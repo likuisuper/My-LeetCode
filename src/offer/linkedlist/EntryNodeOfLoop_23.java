@@ -67,21 +67,26 @@ public class EntryNodeOfLoop_23 {
      * @param pHead
      * @return
      */
-    public ListNode entryNodeOfLoop2(ListNode pHead){
-        if(pHead==null||pHead.next==null){
+    public ListNode entryNodeOfLoop2(ListNode head){
+        if(head==null||head.next==null)
             return null;
-        }
-        ListNode slow=pHead,fast=pHead;
-        //初始化，两个节点间隔1个节点
-        do{
-            slow=slow.next;
+        ListNode fast,slow;
+        fast=slow=head;
+        while(true){
+            //防止只有一个节点的情况
+            if(fast==null||fast.next==null)
+                return null;
             fast=fast.next.next;
-        }while (slow!=fast);
-        //让fast指针重新从头开始走(slow也一样，因为两者在上一步是重合的）
-        fast=pHead;
-        while (slow!=fast){
             slow=slow.next;
+            //说明存在环
+            if(fast==slow)
+                break;
+        }
+        //让slow重新从头节点开始遍历
+        slow=head;
+        while(fast!=slow){
             fast=fast.next;
+            slow=slow.next;
         }
         return slow;
     }

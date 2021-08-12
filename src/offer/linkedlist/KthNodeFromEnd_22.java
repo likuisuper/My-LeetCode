@@ -19,7 +19,8 @@ public class KthNodeFromEnd_22 {
         //第一次遍历链表，得到链表的长度
         int count = 0;
         ListNode node = pHead;
-        while (node.next != null) {
+        //不能根据node.next来判断，比如[1],1这个测试用例就过不了，下面的1>0，直接返回Null了
+        while (node!= null) {
             node = node.next;
             count++;
         }
@@ -28,7 +29,7 @@ public class KthNodeFromEnd_22 {
             return null;
         }
         //第二次遍历链表，找到第K个节点的位置
-        for (int i = 0; i <= count; i++) {
+        for (int i = 1; i <= count; i++) {
             //倒数第K个节点的位置=链表长度-K+1，加1是因为下标从0开始
             if (i == count - k + 1)
                 return pHead;
